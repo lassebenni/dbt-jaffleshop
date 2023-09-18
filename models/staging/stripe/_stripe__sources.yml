@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+    - name: stripe
+      description: Stripe payments data for Jaffle shop.
+      database: raw
+      schema: stripe
+      tables:
+          - name: payment
+            description: Payment information

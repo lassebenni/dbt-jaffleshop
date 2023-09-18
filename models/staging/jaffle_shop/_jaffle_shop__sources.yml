@@ -2,7 +2,7 @@ version: 2
 
 sources:
     - name: jaffle_shop
-      description: This is a replica of the Postgres database used by our app
+      description: The jaffle shop is a fictional online store.
       database: raw
       schema: jaffle_shop
       tables:
