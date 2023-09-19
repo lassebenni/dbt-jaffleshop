@@ -5,10 +5,10 @@ sources:
     schema: jaffle_shop
     tables:
       - name: customers
-        description: ""
         columns:
           - name: id
             data_type: string
+            description: '{{ doc("customer_id") }}'
           - name: name
             data_type: string
       - name: items
