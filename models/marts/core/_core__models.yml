@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: obt_orders
+    description: ""
+    columns:
+      - name: id
+      - name: customer_id
+      - name: order_date
+      - name: store_id
+      - name: subtotal
+      - name: tax_paid
+      - name: order_total
+      - name: product_sku
+      - name: customer_name
+      - name: product_name
+      - name: product_type
+      - name: product_price
+      - name: product_description
+      - name: store_name
+      - name: store_opened_at
+      - name: store_tax_rate
+      - name: supply_id
+      - name: supply_name
+      - name: supply_cost
+      - name: perishable
+      - name: supply_sku
