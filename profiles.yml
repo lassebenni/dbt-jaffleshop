@@ -8,3 +8,4 @@ snowflake:
       schema: "{{ env_var('DBT_SCHEMA') }}"
       keyfile: .creds/creds.json
       threads: 8
+      location: EU
