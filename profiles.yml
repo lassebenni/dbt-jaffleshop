@@ -2,11 +2,9 @@ snowflake:
   target: dev
   outputs:
     dev:
-      type: snowflake
-      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
-      user: "{{ env_var('SNOWFLAKE_USERNAME') }}"
-      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
-      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      type: bigquery
+      project: "{{ env_var('BIGQUERY_PROJECT') }}"
+      method: service-account
       schema: "{{ env_var('DBT_SCHEMA') }}"
+      keyfile: .creds/creds.json
       threads: 8
