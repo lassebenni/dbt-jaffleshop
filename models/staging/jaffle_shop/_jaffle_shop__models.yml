@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: customers
+    description: ""
+    columns:
+      - name: id
+      - name: name
+  - name: items
+    description: ""
+    columns:
+      - name: id
+      - name: order_id
+      - name: sku
+  - name: orders
+    description: ""
+    columns:
+      - name: id
+      - name: customer
+      - name: ordered_at
+      - name: store_id
+      - name: subtotal
+      - name: tax_paid
+      - name: order_total
+  - name: products
+    description: ""
+    columns:
+      - name: sku
+      - name: name
+      - name: type
+      - name: price
+      - name: description
+  - name: stores
+    description: ""
+    columns:
+      - name: id
+      - name: name
+      - name: opened_at
+      - name: tax_rate
+  - name: supplies
+    description: ""
+    columns:
+      - name: id
+      - name: name
+      - name: cost
+      - name: perishable
+      - name: sku
