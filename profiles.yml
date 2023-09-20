@@ -6,7 +6,5 @@ snowflake:
       project: "{{ env_var('BIGQUERY_PROJECT') }}"
       schema: "{{ env_var('DBT_SCHEMA') }}"
       method: oauth
-      # method: service-account
-      # keyfile: .creds/creds.json
       threads: 8
       location: EU
