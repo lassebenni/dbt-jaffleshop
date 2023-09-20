@@ -1,10 +1,21 @@
-with
-    raw_source as (select * from {{ source("jaffle_shop", "customers") }}),
+with raw_source as (
 
-    final as (
-        select id, name
-        from raw_source
-        )
 
-select *
-from final
+
+    select *
+    from {{ source('jaffle_shop', 'customers') }}
+
+),
+
+final as (
+
+    select
+        id,
+        name,
+        ingestion_date
+
+    from raw_source
+
+)
+
+select * from final

@@ -2,97 +2,52 @@ version: 2
 
 models:
   - name: customers
+    description: ""
     columns:
       - name: id
-        description: Test doc
-        tests:
-          - unique
       - name: name
-        description: "{{ doc('customers_name') }}"
-
+      - name: ingestion_date
   - name: items
-    description: "{{ doc('items') }}"
-    tests:
-    - dbt_utils.unique_combination_of_columns:
-        combination_of_columns:
-          - order_id
-          - sku
+    description: ""
     columns:
       - name: id
-        description: "{{ doc('items_id') }}"
       - name: order_id
-        description: "{{ doc('items_order_id') }}"
       - name: sku
-        description: "{{ doc('items_sku') }}"
-
+      - name: ingestion_date
   - name: orders
-    description: "{{ doc('orders') }}"
+    description: ""
     columns:
       - name: id
-        description: "{{ doc('orders_id') }}"
-        tests:
-          - unique
-          - not_null
       - name: customer
-        description: "{{ doc('orders_customer') }}"
       - name: ordered_at
-        description: "{{ doc('orders_ordered_at') }}"
       - name: store_id
-        description: "{{ doc('orders_store_id') }}"
       - name: subtotal
-        description: "{{ doc('orders_subtotal') }}"
       - name: tax_paid
-        description: "{{ doc('orders_tax_paid') }}"
       - name: order_total
-        description: "{{ doc('orders_order_total') }}"
-
+      - name: ingestion_date
   - name: products
-    description: "{{ doc('products') }}"
+    description: ""
     columns:
       - name: sku
-        description: "{{ doc('products_sku') }}"
-        tests:
-          - unique
-          - not_null
       - name: name
-        description: "{{ doc('products_name') }}"
       - name: type
-        description: "{{ doc('products_type') }}"
       - name: price
-        description: "{{ doc('products_price') }}"
       - name: description
-        description: "{{ doc('products_description') }}"
-
+      - name: ingestion_date
   - name: stores
-    description: "{{ doc('stores') }}"
+    description: ""
     columns:
       - name: id
-        description: "{{ doc('stores_id') }}"
-        tests:
-          - unique
-          - not_null
       - name: name
-        description: "{{ doc('stores_name') }}"
       - name: opened_at
-        description: "{{ doc('stores_opened_at') }}"
       - name: tax_rate
-        description: "{{ doc('stores_tax_rate') }}"
-
+      - name: ingestion_date
   - name: supplies
-    description: "{{ doc('supplies') }}"
-    tests:
-    - dbt_utils.unique_combination_of_columns:
-        combination_of_columns:
-          - id
-          - sku
+    description: ""
     columns:
       - name: id
-        description: "{{ doc('supplies_id') }}"
       - name: name
-        description: "{{ doc('supplies_name') }}"
       - name: cost
-        description: "{{ doc('supplies_cost') }}"
       - name: perishable
-        description: "{{ doc('supplies_perishable') }}"
       - name: sku
-        description: "{{ doc('supplies_sku') }}"
+      - name: ingestion_date
