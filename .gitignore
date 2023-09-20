@@ -4,3 +4,4 @@ target
 .env
 .user.yml
 .creds
+dbt_packages
