@@ -5,11 +5,18 @@ models:
     columns:
       - name: id
         description: Test doc
+        tests:
+          - unique
       - name: name
         description: "{{ doc('customers_name') }}"
 
   - name: items
     description: "{{ doc('items') }}"
+    tests:
+    - dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+          - order_id
+          - sku
     columns:
       - name: id
         description: "{{ doc('items_id') }}"
@@ -23,6 +30,9 @@ models:
     columns:
       - name: id
         description: "{{ doc('orders_id') }}"
+        tests:
+          - unique
+          - not_null
       - name: customer
         description: "{{ doc('orders_customer') }}"
       - name: ordered_at
@@ -41,6 +51,9 @@ models:
     columns:
       - name: sku
         description: "{{ doc('products_sku') }}"
+        tests:
+          - unique
+          - not_null
       - name: name
         description: "{{ doc('products_name') }}"
       - name: type
@@ -55,6 +68,9 @@ models:
     columns:
       - name: id
         description: "{{ doc('stores_id') }}"
+        tests:
+          - unique
+          - not_null
       - name: name
         description: "{{ doc('stores_name') }}"
       - name: opened_at
@@ -64,6 +80,11 @@ models:
 
   - name: supplies
     description: "{{ doc('supplies') }}"
+    tests:
+    - dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+          - id
+          - sku
     columns:
       - name: id
         description: "{{ doc('supplies_id') }}"
