@@ -1,0 +1,10 @@
+generate:
+  sources:
+    sources_destination: "models/staging/{{ schema | replace(env_vars['DATACOVES_USER_SCHEMA'],'') }}/_{{ schema | replace(env_vars['DATACOVES_USER_SCHEMA'], '') }}__sources.yml" # Where sources yml files will be generated
+    models_destination: "models/staging/{{ schema | replace(env_vars['DATACOVES_USER_SCHEMA'], '') }}/stg_{{ schema | replace(env_vars['DATACOVES_USER_SCHEMA'], '') }}__{{ relation | replace(env_vars['DATACOVES_USER_SCHEMA'], '') | replace ('src_', '') }}.sql" # Where models sql files will be generated
+    model_props_destination: "models/staging/{{ schema | replace(env_vars['DATACOVES_USER_SCHEMA'], '') }}/_{{ schema | replace(env_vars['DATACOVES_USER_SCHEMA'], '') }}__models.yml" # Where models yml files will be generated
+    update_strategy: recreate # Action to perform when a property file already exists. Options: update, recreate, fail, ask (per file)
+    templates_folder: ".dbt_coves/templates" # Folder where source generation jinja templates are located. Override default templates creating  source_props.yml, source_model_props.yml, and source_model.sql under this folder
+  properties:
+    destination: "{{model_folder_path}}/_{{ schema | replace(env_vars['DATACOVES_USER_SCHEMA'], '') }}__models.yml"
+    update_strategy: "recreate"

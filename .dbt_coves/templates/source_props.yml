@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: {{ relation.schema.lower() }}
+    schema: {{ relation.schema.lower() }}
+    tables:
+      - name: {{ relation.name.lower() }}
+        description: ""
+        columns:
+        {%- for col in columns %}
+          - name: {{ col['name'].lower() }}
+            data_type: {{ col['type'].lower().replace("varchar", "string") }}
+        {%- endfor %}

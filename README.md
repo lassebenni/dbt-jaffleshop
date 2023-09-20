@@ -1,15 +1,28 @@
-Welcome to your new dbt project!
+Here are some possible analytical insights you could derive from this dataset:
 
-### Using the starter project
+1. **Customer Behavior:**
+   - Purchase frequency: how often a customer makes a purchase.
+   - Average spend per order or over a given period.
+   - Types of items each customer frequently purchases.
+   - Most and least active hours or days for customers.
 
-Try running the following commands:
-- dbt run
-- dbt test
+2. **Product Analysis:**
+   - Most and least popular products based on the quantity sold.
+   - Revenue generated from each product.
+   - Correlation between perishable products and order frequency.
+   - Time of the day when certain products are more likely to be sold.
 
+3. **Sales Performance:**
+   - Total revenue for a given period.
+   - Time trends in purchase: identify peak sale hours, days or months.
+   - Store performance: revenue generated from different stores.
+   - The effect of tax rate changes on total revenue.
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+4. **Inventory Management:**
+   - The cost of supplies used to create each item, and which items are most costly to produce.
+   - The impact of perishable goods on inventory management and product pricing.
+   - The items that require re-stocking most frequently.
+
+5. **Customer-Product Segmentation:**
+   - Cluster customers based on their purchasing behavior.
+   - Identify relationship between different products – products often bought together.

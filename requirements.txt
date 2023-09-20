@@ -1,1 +1,2 @@
-dbt-snowflake==1.6.2
+dbt-bigquery==1.6.4
+dbt-coves==1.6.0
