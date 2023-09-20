@@ -1,0 +1,54 @@
+name: "DBT Run"
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *" # every day at 12:00 pm
+
+jobs:
+  dbt-build:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.8
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      pages: write
+    env:
+      BIGQUERY_PROJECT: "dbt-training-bol"
+      DBT_SCHEMA: main
+
+    steps:
+      - uses: 'actions/checkout@v3'
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          workload_identity_provider: "projects/${{ secrets.PROJECT_ID }}/locations/global/workloadIdentityPools/github/providers/github"
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Check warehouse connection
+        run: dbt debug
+
+      - name: Install dbt dependencies
+        run: dbt deps
+
+      - name: Run DBT
+        run: dbt build
+
+      - name: Setup DBT Docs to GH Pages
+        uses: actions/configure-pages@v3
+
+      - name: Generate docs
+        run: dbt docs generate --profiles-dir .
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+            path: "target"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
