@@ -1,27 +1,77 @@
 version: 2
 
 models:
+  - name: monthly_revenue
+    description: "This model contains information about the monthly revenue"
+    columns:
+      - name: order_month
+        description: "The month when the order was placed"
+        tests:
+          - unique
+          - not_null
+      - name: revenue
+        description: "The total revenue accounted in that month"
+      - name: revenue_growth
+        description: "The growth of the revenue from the previous month"
+
   - name: obt_orders
-    description: ""
+    description: "This model is a detailed view of all orders"
     columns:
       - name: id
+        description: "Unique identifier of an order"
       - name: customer_id
+        description: "Identifier of the customer who placed the order"
       - name: order_date
+        description: "The date when the order was placed"
       - name: store_id
+        description: "Identifier of the store where the order was placed"
       - name: subtotal
+        description: "Subtotal amount before taxes"
       - name: tax_paid
+        description: "Amount of tax paid for the order"
       - name: order_total
+        description: "Total order amount including tax"
       - name: product_sku
+        description: "SKU identification for the product"
       - name: customer_name
+        description: "Name of the customer"
       - name: product_name
+        description: "Name of the product ordered"
       - name: product_type
+        description: "Type or category of the product"
       - name: product_price
+        description: "Listed price of the product ordered"
       - name: product_description
+        description: "Brief description or details of the product"
       - name: store_name
+        description: "Name of the store where the order was placed"
       - name: store_opened_at
+        description: "Date when the store was first opened"
       - name: store_tax_rate
+        description: "Applicable tax rate at the store"
       - name: supply_id
+        description: "Identifier for the product supply details"
       - name: supply_name
+        description: "Name or title of the product supply"
       - name: supply_cost
+        description: "Total cost incurred for the product supply"
       - name: perishable
+        description: "Indicator whether the product is perishable or not"
       - name: supply_sku
+        description: "SKU identification for the product supply"
+
+  - name: purchase_frequency
+    description: "This model captures customer's purchase frequency information"
+    columns:
+      - name: customer
+        description: "Customer identifier"
+      - name: total_orders
+        description: "Total orders placed by the customer"
+      - name: total_days
+        description: "Total days the customer has been active"
+      - name: total_amount
+        description: "Total amount spent by the customer"
+      - name: orders_per_day
+        description: "Average number of orders placed by customer per day"
+      - name: amount_per_day
+        description: "Average amount spent by customer per day"
