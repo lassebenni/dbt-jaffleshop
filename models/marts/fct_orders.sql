@@ -9,11 +9,11 @@ with
         group by order_id
     ),
 
-    final as (
+    orders_with_amount as (
         select orders.order_id, grouped_payments.total_amount_usd
         from orders
         left join grouped_payments using (order_id)
     )
 
 select *
-from final
+from orders_with_amount
